@@ -1,0 +1,10 @@
+<h2>All Items</h2>
+<ul class="heroes">
+  <!-- *ngfor is Angular's repeater directive. Repeats host element(<li>) for each element (hero) in  list (heroes). -->
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<!-- display selected hero detail ([hero]="selectedHero" is an Angular property binding. It's a one way binding binding from class property to element property.) -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
