@@ -26,15 +26,20 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  // function to retrieve heroes from the heroservice
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    // this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
   // defines private herService property and identifies it as a HeroService injection site. 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService) {
+    // While you could call getHeroes() in the constructor, that's not the best practice. Reserve the constructor for simple initialization such as wiring constructor parameters to properties. The constructor shouldn't do anything. It certainly shouldn't call a function that makes HTTP requests to a remote server as a real data service would.
+  }
 
   // lifecycle hook: called shortly after creating a component. put initialization logic here. 
   ngOnInit() {
+    // call hero data getter here instead of in the constructor
     this.getHeroes();
   }
   
