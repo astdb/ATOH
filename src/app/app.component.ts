@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']  // location of component's private CSS styles
 })
 export class AppComponent {
-  title = 'ATOH';
+  title = 'Angular Demo App';
 }
